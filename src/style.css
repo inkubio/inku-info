@@ -1,0 +1,121 @@
+html {
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #222222;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+
+    background-color: #F1F1F1;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-attachment: center;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    background-image: url(https://www.inkubio.fi/wp-content/themes/suurinkubio/assets/images/frontpage/circuit_background.svg);
+}
+
+* + * {
+    margin-top: 2rem;
+}
+
+.InkuInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+
+    padding: 2.5rem;
+    overflow-y: auto;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.w33 {
+    width: calc(100% * (1/3));
+}
+
+.w66 {
+    width: calc(100% * (2/3));
+}
+
+.BigItem {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 100%;
+    padding: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-size: 3rem;
+}
+
+.MediumItem {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 2rem;
+    padding: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-right: 2rem;
+}
+
+.SmallItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/*
+ * Text styles
+ */
+.small {
+    font-size: 1.5rem;
+}
+
+.bread {
+    font-size: 1.5rem;
+}
+
+.card {
+    background-color: #FDFDFD;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+h2, p {
+    margin: 0;
+    text-transform: capitalize;
+}
+
+p {
+    padding-top: 0.5em;
+    font-family: 'Lato', sans-serif;
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+}
+
+span {
+    padding-left: 1em;
+    padding-right: 1em;
+}

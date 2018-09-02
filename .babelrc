@@ -1,0 +1,14 @@
+{
+    "presets": [
+        "@babel/env"
+    ],
+    "plugins": [
+        [
+            "transform-react-jsx",
+            {
+                "pragma": "h"
+            }
+        ],
+        ["@babel/transform-runtime"]
+    ]
+}

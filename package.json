@@ -1,0 +1,39 @@
+{
+  "name": "inku-info",
+  "version": "0.0.1",
+  "description": "Info screen for the guildroom of Inkubio",
+  "private": true,
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "hyperapp": "^1.2.8",
+    "webpack": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.6"
+  },
+  "scripts": {
+    "build": "npx webpack",
+    "clean": "rm -rf node_modules/ && npm install",
+    "dev": "npx webpack-dev-server",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/inkubio/inku-info.git"
+  },
+  "author": "Maikki",
+  "bugs": {
+    "url": "https://github.com/inkubio/inku-info/issues"
+  },
+  "homepage": "https://github.com/inkubio/inku-info#readme"
+}
