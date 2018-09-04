@@ -87,8 +87,16 @@ body {
 /*
  * Text styles
  */
+.tiny {
+    font-size: 1.2rem;
+}
+
 .small {
     font-size: 1.5rem;
+}
+
+.medium {
+    font-size: 2rem;
 }
 
 .bread {

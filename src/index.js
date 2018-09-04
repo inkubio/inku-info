@@ -100,11 +100,11 @@ const BigItem = ({event}) => (
     <div className="BigItem card">
         <h2>{event.summary}</h2>
         {!!event.description &&
-            <p className="small">
+            <p className="medium">
                 <i>{event.description}</i>
             </p>
         }
-        <p className="small">
+        <p className="medium">
             {getLongDate(event)}
             <span>|</span>
             {filterLocation(event)}
@@ -126,7 +126,7 @@ const MediumItem = ({event}) => (
 const SmallItem = ({event}) => (
     <div className="SmallItem card">
         <h2>{event.summary}</h2>
-        <p>
+        <p className="tiny">
             {getShortDate(event)}
             <span>|</span>
             {filterLocation(event)}
