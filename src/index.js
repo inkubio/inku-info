@@ -84,6 +84,7 @@ const getShortDate = (event) => {
 
 /** Returns events location while stripping away filter strings */
 const filterLocation = (event) => {
+    if (!event.location) return '';
     const filteredStrings = [
         '02150',
         'Finland',
@@ -106,7 +107,7 @@ const BigItem = ({event}) => (
         }
         <p className="medium">
             {getLongDate(event)}
-            <span>|</span>
+            {event.location && <span>|</span>}
             {filterLocation(event)}
         </p>
     </div>
@@ -117,7 +118,7 @@ const MediumItem = ({event}) => (
         <h2>{event.summary}</h2>
         <p className="small">
             {getLongDate(event)}
-            <span>|</span>
+            {event.location && <span>|</span>}
             {filterLocation(event)}
         </p>
     </div>
@@ -128,7 +129,7 @@ const SmallItem = ({event}) => (
         <h2>{event.summary}</h2>
         <p className="tiny">
             {getShortDate(event)}
-            <span>|</span>
+            {event.location && <span>|</span>}
             {filterLocation(event)}
         </p>
     </div>
