@@ -40,6 +40,7 @@ const getLongDate = (event) => {
             day: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
+            timeZone: 'Europe/Helsinki',
         };
         dateTimeString = date.toLocaleString('fi-FI', conf);
     } else {
@@ -49,6 +50,7 @@ const getLongDate = (event) => {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
+            timeZone: 'Europe/Helsinki',
         };
         dateTimeString = date.toLocaleDateString('fi-FI', conf);
     }
@@ -67,6 +69,7 @@ const getShortDate = (event) => {
             day: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
+            timeZone: 'Europe/Helsinki',
         };
         dateTimeString = date.toLocaleString('fi-FI', conf);
     } else {
@@ -76,6 +79,7 @@ const getShortDate = (event) => {
             year: 'numeric',
             month: 'numeric',
             day: 'numeric',
+            timeZone: 'Europe/Helsinki',
         };
         dateTimeString = date.toLocaleDateString('fi-FI', conf);
     }
