@@ -109,7 +109,7 @@ body {
     border-radius: 5px;
 }
 
-h2, p {
+p {
     margin: 0;
     text-transform: capitalize;
 }
