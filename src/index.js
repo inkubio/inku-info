@@ -22,69 +22,81 @@ const actions = {
         const data = await fetch(url);
         const jsonData = await data.json();
         const events = jsonData.items;
-        const sortedEvents = events
-            .sort((a, b) => ('' + a.start.dateTime).localeCompare(b.start.dateTime));
-        actions.setEvents(sortedEvents.slice(0, 10));
+        actions.setEvents(events.slice(0, 10));
     }
 }
+
+const timeConf = {
+    hour: '2-digit',
+    minute: '2-digit',
+};
+
+const longDateConf = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'Europe/Helsinki',
+};
+
+const shortDateConf = {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    timeZone: 'Europe/Helsinki',
+}
+
+const longDateTimeConf = {
+    ...longDateConf,
+    ...timeConf,
+};
+
+const shortDateTimeConf = {
+    ...shortDateConf,
+    ...timeConf,
+};
+
+const sameDateTimeDay = (startDate, endDate) => (
+    startDate.toLocaleString('fi-FI', shortDateConf) === endDate.toLocaleString('fi-FI', shortDateConf)
+);
 
 /** Returns events datetime with weekday as a word */
 const getLongDate = (event) => {
     var dateTimeString;
     if (event.start.dateTime) {
         const date = new Date(event.start.dateTime);
-        const conf = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            timeZone: 'Europe/Helsinki',
-        };
-        dateTimeString = date.toLocaleString('fi-FI', conf);
+        const endDate = new Date(event.end.dateTime);
+        dateTimeString =
+            `${date.toLocaleString('fi-FI', longDateTimeConf)} - ${endDate.toLocaleString('fi-FI',
+                sameDateTimeDay(date, endDate) ? timeConf : longDateTimeConf)}`;
     } else {
         const date = new Date(event.start.date);
-        const conf = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            timeZone: 'Europe/Helsinki',
-        };
-        dateTimeString = date.toLocaleDateString('fi-FI', conf);
+        const endDate = new Date((new Date(event.end.date)).getTime() - 24*60*60*1000);
+        dateTimeString =
+            `${date.toLocaleString('fi-FI', longDateConf)}` +
+            date.getTime() === endDate.getTime() ? '' : ` - ${endDate.toLocaleString('fi-FI', longDateConf)}`;
     }
     return dateTimeString;
-}
+};
 
 /** Returns events datetime as numerical string */
 const getShortDate = (event) => {
     var dateTimeString;
     if (event.start.dateTime) {
         const date = new Date(event.start.dateTime);
-        const conf = {
-            weekday: 'short',
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            timeZone: 'Europe/Helsinki',
-        };
-        dateTimeString = date.toLocaleString('fi-FI', conf);
+        const endDate = new Date(event.end.dateTime);
+        dateTimeString =
+            `${date.toLocaleString('fi-FI', shortDateTimeConf)} - ${endDate.toLocaleString('fi-FI',
+                sameDateTimeDay(date, endDate) ? timeConf : shortDateTimeConf)}`;
     } else {
         const date = new Date(event.start.date);
-        const conf = {
-            weekday: 'short',
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric',
-            timeZone: 'Europe/Helsinki',
-        };
-        dateTimeString = date.toLocaleDateString('fi-FI', conf);
+        const endDate = new Date((new Date(event.end.date)).getTime() - 24*60*60*1000);
+        dateTimeString = date.toLocaleString('fi-FI', shortDateConf);
+        dateTimeString += date.getTime() === endDate.getTime() ? '' : ` - ${endDate.toLocaleString('fi-FI', shortDateConf)}`;
     }
     return dateTimeString;
-}
+};
 
 /** Returns events location while stripping away filter strings */
 const filterLocation = (event) => {
