@@ -60,6 +60,10 @@ body {
     font-size: 3rem;
 }
 
+.BigItem h2 {
+    margin-bottom: 1.5rem;
+}
+
 .MediumItem {
     display: flex;
     flex-grow: 1;
@@ -97,7 +101,10 @@ body {
 
 .medium {
     font-size: 2.5rem;
-    margin-top: 1.5rem;
+}
+
+i {
+    margin-top: 1rem;
 }
 
 .bread {
@@ -115,6 +122,10 @@ p {
     text-transform: capitalize;
     padding-top: 0.5em;
     font-family: 'Lato', sans-serif;
+}
+
+p + p {
+    padding-top: 0.2em;
 }
 
 h2 {

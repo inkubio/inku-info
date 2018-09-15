@@ -124,9 +124,12 @@ const BigItem = ({event}) => (
         }
         <p className="medium">
             {getLongDate(event)}
-            {event.location && <span>|</span>}
-            {filterLocation(event)}
         </p>
+        {event.location &&
+            <p className="medium">
+                <i>{filterLocation(event)}</i>
+            </p>
+        }
     </div>
 );
 
@@ -135,9 +138,12 @@ const MediumItem = ({event}) => (
         <h2>{event.summary}</h2>
         <p className="small">
             {getLongDate(event)}
-            {event.location && <span>|</span>}
-            {filterLocation(event)}
         </p>
+        {event.location &&
+            <p className="small">
+                <i>{filterLocation(event)}</i>
+            </p>
+        }
     </div>
 );
 
@@ -146,9 +152,12 @@ const SmallItem = ({event}) => (
         <h2>{event.summary}</h2>
         <p className="tiny">
             {getShortDate(event)}
-            {event.location && <span>|</span>}
-            {filterLocation(event)}
         </p>
+        {event.location &&
+            <p className="tiny">
+                <i>{filterLocation(event)}</i>
+            </p>
+        }
     </div>
 );
 
