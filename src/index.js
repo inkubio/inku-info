@@ -113,9 +113,8 @@ const getLongDate = (event) => {
     } else {
         const date = new Date(event.start.date);
         const endDate = new Date((new Date(event.end.date)).getTime() - 24*60*60*1000);
-        dateTimeString =
-            `${date.toLocaleString('fi-FI', longDateConf)}` +
-            date.getTime() === endDate.getTime()
+        dateTimeString = date.toLocaleString('fi-FI', longDateConf);
+        dateTimeString += date.getTime() === endDate.getTime()
                 ? ''
                 : ` - ${endDate.toLocaleString('fi-FI', longDateConf)}`;
     }
