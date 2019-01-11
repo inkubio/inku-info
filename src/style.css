@@ -20,6 +20,11 @@ body {
     background-image: url(https://www.inkubio.fi/wp-content/themes/suurinkubio/assets/images/frontpage/circuit_background.svg);
 }
 
+img {
+    width: 100vw;
+    object-fit: cover;
+}
+
 * + * {
     margin-top: 2rem;
 }

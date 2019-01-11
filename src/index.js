@@ -210,17 +210,25 @@ const SmallItem = ({event}) => (
 );
 
 /** Main component for rendering the page */
-const view = (state, actions) => (
-    <main className="InkuInfo">
-        <BigItem event={state.events[0]} />
-        <div className="column w66">
-            {state.events.slice(1, 4).map(event => <MediumItem event={event} />)}
-        </div>
-        <div className="column w33">
-            {state.events.slice(4, 9).map(event => <SmallItem event={event} />)}
-        </div>
-    </main>
-);
+const view = (state, actions) =>
+    ( 
+        ((new Date()).getMinutes() > 29 && (new Date()).getHours() === 8) ||
+        ((new Date()).getMinutes() > 45 && (new Date()).getHours() === 6) 
+    ) ? (
+        <img
+            src="https://media.glassdoor.com/l/db/25/0c/75/aalto-university.jpg"
+        />
+    ) : (
+        <main className="InkuInfo">
+            <BigItem event={state.events[0]} />
+            <div className="column w66">
+                {state.events.slice(1, 4).map(event => <MediumItem event={event} />)}
+            </div>
+            <div className="column w33">
+                {state.events.slice(4, 9).map(event => <SmallItem event={event} />)}
+            </div>
+        </main>
+    );
 
 const main = app(initialState, actions, view, document.body);
 
